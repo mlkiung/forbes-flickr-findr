@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './css/normalize.css'
-import './css/skeleton.css'
+// import './css/normalize.css'
+// import './css/skeleton.css'
+import './index.css'
 import PhotoGallery from './components/PhotoGallery'
 
 class App extends Component {

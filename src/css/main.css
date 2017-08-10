@@ -1,0 +1,14 @@
+.page-number {
+   border: 1px solid black;
+   text-align: center;
+}
+
+img {
+  border: 1em solid black;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
