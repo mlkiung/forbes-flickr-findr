@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-// import './css/normalize.css'
-// import './css/skeleton.css'
 import './index.css'
 import PhotoGallery from './components/PhotoGallery'
+import Header from './components/Header'
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <h2>Images</h2>
+      <div className="app">
+        <Header />
         <PhotoGallery />
       </div>
     );
@@ -16,3 +15,23 @@ class App extends Component {
 }
 
 export default App;
+
+
+/*
+
+<div className="app">
+  <div className="header">
+    <div className="container">
+      <div className="row">
+        <div className="title six columns"></div>
+        <div className="search six columns"></div>
+      </div>
+    </div>
+  </div>
+  <div className="main">
+    <div className="photo-gallery"></div>
+    <div className="pagination"></div>
+  </div>
+</div>
+
+*/

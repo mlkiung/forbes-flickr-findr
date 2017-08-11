@@ -47,13 +47,6 @@ class PhotoGallery extends Component {
     const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage
     const currentPhotos = photos.slice(indexOfFirstPhoto, indexOfLastPhoto)
 
-    const renderPhotos = currentPhotos.map((photo, i) => {
-      return (
-        <div className="five columns img-container" key={i}>
-          <img src={photo}/>
-        </div>
-      )
-    })
 
     // Logic for displaying page numbers
     const pageNumbers = []
@@ -62,18 +55,44 @@ class PhotoGallery extends Component {
       pageNumbers.push(i)
     }
 
-    const renderPageNumbers = pageNumbers.map(number => {
-      return (
-        <div className="one column page-number" key={number} id={number} onClick={this.handleClick}>
-          {number}
-        </div>
-      )
-    })
-
     return (
-      <div className="container">
-        <div className="row">{renderPhotos}</div>
-        <div id="page-numbers" className="row">{renderPageNumbers}</div>
+      <div id="main" className="container">
+        <div className="photo-gallery">
+          <div className="section">
+            {
+              currentPhotos.map((photo, i) => {
+                const styles = {
+                  background: `url(${photo}) center no-repeat`,
+                  flex: 6,
+                  height: '300px',
+                  minWidth: '300px'
+                }
+                return (
+                  <div className="img-container" style={styles} key={i}></div>
+                )
+              })
+            }
+          </div>
+        </div>
+        <div id="page-numbers" className="row">
+          {
+            pageNumbers.map(number => {
+              return (
+                <div
+                  className="page-number button"
+                  key={number}
+                  id={number}
+                  onClick={this.handleClick}>
+                  {number}
+                </div>
+              )
+            })
+          }
+        </div>
+        <div className="row arrows">
+          <div className="back six columns"></div>
+          <div className="next six columns"></div>
+        </div>
       </div>
     )
   }
