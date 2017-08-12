@@ -62,7 +62,7 @@ class PhotoGallery extends Component {
             {
               currentPhotos.map((photo, i) => {
                 const styles = {
-                  background: `url(${photo}) center center / cover no-repeat`,
+                  background: `url(${photo}) center center / contain no-repeat`,
                   // backgroundSize: 'contain',
                   // flex: 6,
                   // height: '200px',
