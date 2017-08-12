@@ -4,7 +4,7 @@ class Header extends Component {
   render() {
     return (
       <div className="header">
-        <div className="container">
+        <div className="container u-full-width u-max-full-width">
           <div className="row">
             <div className="title six columns">
               <h1 className="logo">Flickr Findr</h1>

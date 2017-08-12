@@ -56,29 +56,29 @@ class PhotoGallery extends Component {
     }
 
     return (
-      <div id="main" className="container">
+      <div id="main" className="container u-full-width u-max-full-width">
         <div className="photo-gallery">
           <div className="section">
             {
               currentPhotos.map((photo, i) => {
                 const styles = {
-                  background: `url(${photo}) center center / auto 200px no-repeat`,
+                  background: `url(${photo}) center center / cover no-repeat`,
                   // backgroundSize: 'contain',
-                  flex: 6,
-                  height: '200px',
-                  minWidth: '200px',
-                  maxWidth: '400px',
+                  // flex: 6,
+                  // height: '200px',
+                  // minWidth: '200px',
+                  // maxWidth: '400px',
                 }
                 return (
-                  <div className="img-container"  key={i}>
-                    <img src={photo} />
+                  <div className="img-container" key={i}>
+                    <img src={photo} style={styles} />
                   </div>
                 )
               })
             }
           </div>
         </div>
-        <div id="page-numbers" className="row">
+        <div id="page-numbers" className="row u-full-width u-max-full-width">
           {
             pageNumbers.map(number => {
               return (
