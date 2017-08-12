@@ -10,7 +10,7 @@ class Header extends Component {
               <h1 className="logo">Flickr Findr</h1>
             </div>
             <div className="search six columns">
-              <label for="search-flickr">Search Flickr</label>
+              <label htmlFor="search-flickr">Search Flickr</label>
               <input
                 className="u-full-width"
                 type="text"

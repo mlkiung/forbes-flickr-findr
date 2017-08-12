@@ -10,7 +10,7 @@ class PhotoGallery extends Component {
 
     this.state = {
       photos: [],
-      searchterm: 'cows',
+      searchterm: 'ice cream',
       currentPage: 1,
       photosPerPage: 10
     }
@@ -62,13 +62,17 @@ class PhotoGallery extends Component {
             {
               currentPhotos.map((photo, i) => {
                 const styles = {
-                  background: `url(${photo}) center no-repeat`,
+                  background: `url(${photo}) center center / auto 200px no-repeat`,
+                  // backgroundSize: 'contain',
                   flex: 6,
-                  height: '300px',
-                  minWidth: '300px'
+                  height: '200px',
+                  minWidth: '200px',
+                  maxWidth: '400px',
                 }
                 return (
-                  <div className="img-container" style={styles} key={i}></div>
+                  <div className="img-container"  key={i}>
+                    <img src={photo} />
+                  </div>
                 )
               })
             }
