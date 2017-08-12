@@ -56,26 +56,20 @@ class PhotoGallery extends Component {
     }
 
     return (
-      <div id="main" className="container u-full-width u-max-full-width">
+      <div id="main"   className="u-full-width u-max-full-width" >
         <div className="photo-gallery">
-          <div className="section">
+          <div id="container" className="section">
+            <ul id="content">
             {
               currentPhotos.map((photo, i) => {
-                const styles = {
-                  background: `url(${photo}) center center / contain no-repeat`,
-                  // backgroundSize: 'contain',
-                  // flex: 6,
-                  // height: '200px',
-                  // minWidth: '200px',
-                  // maxWidth: '400px',
-                }
                 return (
-                  <div className="img-container" key={i}>
-                    <img src={photo} style={styles} />
-                  </div>
+                  <li className="img-container" key={i}>
+                    <img src={photo} />
+                  </li>
                 )
               })
-            }
+              }
+            </ul>
           </div>
         </div>
         <div id="page-numbers" className="row u-full-width u-max-full-width">
@@ -93,9 +87,9 @@ class PhotoGallery extends Component {
             })
           }
         </div>
-        <div className="row arrows">
-          <div className="back six columns"></div>
-          <div className="next six columns"></div>
+        <div className="row arrows u-full-width u-max-full-width">
+          <div className="back"></div>
+          <div className="next"></div>
         </div>
       </div>
     )
