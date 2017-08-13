@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux'
 import search from './search'
-// import visibilityFilter from './visibilityFilter'
+import images from './images'
+// import store from '../store'
 
-const flickrFindr = combineReducers({ search })
+const rootReducer = combineReducers({ search, images })
 
-export default flickrFindr
+export default rootReducer

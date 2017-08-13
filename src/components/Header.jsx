@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { newSearch, getImages } from '../redux/actions'
 
 class Header extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       searchTerm: ''
@@ -14,6 +16,7 @@ class Header extends Component {
 
   onSearchChange(event) {
     event.preventDefault()
+    console.log(event.target.value)
     this.setState({
       searchTerm: event.target.value
     })
@@ -21,6 +24,8 @@ class Header extends Component {
 
   onSearchSubmit(event) {
     event.preventDefault()
+    this.props.newSearch(this.state.searchTerm)
+    this.props.getImages(this.state.searchTerm)
   }
 
   render() {
@@ -34,14 +39,15 @@ class Header extends Component {
             <div className="search six columns">
               <label htmlFor="search-flickr">Search Flickr</label>
               <input
-                className="u-full-width"
                 type="text"
                 placeholder="Puppies?"
                 id="search-flickr"
                 value={this.state.searchTerm}
                 onChange={this.onSearchChange}
-                onSubmit={this.onSearchSubmit}
+                // onClick={this.onSearchSubmit}
+                // onKeyDown={this.onSearchKeydown}
               />
+              <button type="submit" onClick={this.onSearchSubmit}>Search</button>
             </div>
           </div>
         </div>
@@ -50,4 +56,7 @@ class Header extends Component {
   }
 }
 
-export default Header
+const mapStateToProps = () => ({})
+const mapDispatchToProps = (dispatch) => ({ newSearch, getImages })
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

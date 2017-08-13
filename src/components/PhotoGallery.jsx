@@ -1,36 +1,35 @@
 import React, { Component } from 'react'
-import { api_key } from '../config'
-import fetchJsonp from 'fetch-jsonp'
-import formatNewData from '../utils'
+import { connect } from 'react-redux'
+// import { api_key } from '../config'
+// import fetchJsonp from 'fetch-jsonp'
+import { getImages } from '../redux/actions'
+import Photos from './Photos'
 
 
 class PhotoGallery extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
-      photos: [],
-      searchterm: 'ice cream',
+      // searchTerm: this.props.searchTerm,
       currentPage: 1,
-      photosPerPage: 10
+      imagesPerPage: 10,
+      images: [],
     }
 
     this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
-    const queryString = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${api_key}&text=${this.state.searchterm}&format=json`
-
-    return new Promise((resolve, reject) => {
-      fetchJsonp(queryString, {jsonpCallbackFunction: 'jsonFlickrApi'}).then((response) => response.json()).then((json) => {
-        const photos = json.photos.photo
-        const formattedData = formatNewData(photos)
-        this.setState({photos: formattedData})
-        console.log('parsed json', json.photos.photo)
-        console.log('formattedData', formattedData)
-        resolve(this.state.photos)
-      }).catch((ex) => new Error('parsing failed', ex))
+    this.setState({
+      images: this.props.images
     })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.props.images !== nextProps.images
+      ? this.setState({ images: nextProps.images })
+      : null
   }
 
   handleClick(event) {
@@ -40,17 +39,19 @@ class PhotoGallery extends Component {
   }
 
   render() {
-    const { photos, currentPage, photosPerPage } = this.state
+    const { images, currentPage, imagesPerPage } = this.state
+    let currentImages = []
 
-    // Logic for displaying photos
-    const indexOfLastPhoto = currentPage * photosPerPage
-    const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage
-    const currentPhotos = photos.slice(indexOfFirstPhoto, indexOfLastPhoto)
-
+    if (images && images !== []) {
+      // Logic for displaying images
+      const indexOfLastImage = currentPage * imagesPerPage
+      const indexOfFirstImage = indexOfLastImage - imagesPerPage
+      currentImages = images.slice(indexOfFirstImage, indexOfLastImage)
+    }
 
     // Logic for displaying page numbers
     const pageNumbers = []
-    const numberOfPages = Math.ceil(photos.length / photosPerPage)
+    const numberOfPages = Math.ceil(images.length / imagesPerPage)
     for (let i = 1; i <= numberOfPages; i++) {
       pageNumbers.push(i)
     }
@@ -59,17 +60,11 @@ class PhotoGallery extends Component {
       <div id="main"   className="u-full-width u-max-full-width" >
         <div className="photo-gallery">
           <div id="container" className="section">
-            <ul id="content">
             {
-              currentPhotos.map((photo, i) => {
-                return (
-                  <li className="img-container" key={i}>
-                    <img src={photo} />
-                  </li>
-                )
-              })
-              }
-            </ul>
+              currentImages && currentImages !== []
+                ? <Photos currentImages={currentImages} />
+                : null
+            }
           </div>
         </div>
         <div id="page-numbers" className="row u-full-width u-max-full-width">
@@ -96,4 +91,13 @@ class PhotoGallery extends Component {
   }
 }
 
-export default PhotoGallery
+const mapStateToProps = state => {
+  console.log('state', state)
+  return {
+    images: state.images.images || []
+  }
+}
+
+const mapDispatchToProps = dispatch => ({ getImages })
+
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoGallery)
