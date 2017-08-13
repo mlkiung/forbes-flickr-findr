@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
+// import { connect } from 'react-redux'
 import './index.css'
 import PhotoGallery from './components/PhotoGallery'
 import Header from './components/Header'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="app">
-        <Header />
-        <PhotoGallery />
-      </div>
-    );
-  }
+const App = (props) => {
+  // let hasASearchHappened = props.searchTerm !== ''
+  //   ? 'search-true'
+  //   : 'search-false'
+  return (
+    <div className="app">
+      <Header />
+      <PhotoGallery />
+    </div>
+  );
 }
 
-export default App;
+// const mapStateToProps = state => ({ searchTerm: state.searchTerm || '' })
+
+// export default connect(mapStateToProps)(App)
+
+export default App
 
 
 /*

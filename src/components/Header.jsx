@@ -9,6 +9,7 @@ class Header extends Component {
     this.state = {
       searchTerm: '',
       mobile: false,
+      emptyPage: true,
     }
 
     this.onSearchChange = this.onSearchChange.bind(this)
@@ -16,9 +17,10 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    const mediaQuery = window.matchMedia("(min-width: 760px)").matches
+    const mediaQuery = window.matchMedia("(min-width: 1200px)").matches
     console.log('media', mediaQuery)
-    mediaQuery ? this.setState({ mobile: true }) : this.setState({ mobile: false })
+    mediaQuery ? this.setState({ mobile: false }) : this.setState({ mobile: true })
+    this.state.searchTerm !== '' ? this.setState({ emptyPage: false }) : this.setState({ emptyPage: true })
   }
 
   onSearchChange(event) {
@@ -33,17 +35,20 @@ class Header extends Component {
     event.preventDefault()
     this.props.newSearch(this.state.searchTerm)
     this.props.getImages(this.state.searchTerm)
+    this.setState({ emptyPage: false })
   }
 
   render() {
+    let searchClassName = this.state.emptyPage ? 'search-false' : 'search-true'
+    console.log(searchClassName)
     return (
-      <div className="header">
+      <div className={`header ${searchClassName}`}>
         <div className="container u-full-width u-max-full-width">
           <div className="row">
             <div className="title six columns">
               <h1 className="logo">Flickr Findr</h1>
             </div>
-            <div className="search six columns">
+            <div className={`search six columns`}>
               <label htmlFor="search-flickr">Search Flickr</label>
               {
                 this.state.mobile
@@ -72,7 +77,7 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = () => ({})
+const mapStateToProps = (state) => ({ searchTerm: state.searchTerm || null })
 const mapDispatchToProps = (dispatch) => ({ newSearch, getImages })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

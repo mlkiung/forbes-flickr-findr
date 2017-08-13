@@ -1,5 +1,5 @@
 import store from '../store'
-import formatNewData from '../../utils'
+import { formatNewData } from '../../utils'
 import { api_key } from '../../config'
 import fetchJsonp from 'fetch-jsonp'
 

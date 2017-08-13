@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { api_key } from '../config'
-// import fetchJsonp from 'fetch-jsonp'
 import { getImages } from '../redux/actions'
 import Photos from './Photos'
-// import ImgLightbox from './ImgLightbox'
-// import Lightbox from 'react-images'
-
 
 class PhotoGallery extends Component {
   constructor(props) {
@@ -17,13 +12,10 @@ class PhotoGallery extends Component {
       currentPage: 1,
       imagesPerPage: 10,
       images: [],
-      // lightboxIsOpen: false,
       imgUrl: '',
     }
 
     this.handleClick = this.handleClick.bind(this)
-    // this.handlePhotoClick = this.handlePhotoClick.bind(this)
-    // this.closeLightbox = this.closeLightbox.bind(this)
   }
 
   componentDidMount() {
@@ -45,27 +37,12 @@ class PhotoGallery extends Component {
     })
   }
 
-  // closeLightbox() {
-  //   this.setState({
-  //     lightboxIsOpen: false
-  //   })
-  // }
-
-  // handlePhotoClick(event) {
-  //   // event.preventDefault()
-  //   event.target && console.log(event.target)
-  //   this.setState({
-  //     // lightboxIsOpen: true,
-  //     imgUrl: event.target.name
-  //   })
-  // }
-
   render() {
     const { images, currentPage, imagesPerPage } = this.state
     let currentImages = []
 
+    // Logic for displaying images
     if (images && images !== []) {
-      // Logic for displaying images
       const indexOfLastImage = currentPage * imagesPerPage
       const indexOfFirstImage = indexOfLastImage - imagesPerPage
       currentImages = images.slice(indexOfFirstImage, indexOfLastImage)
@@ -88,7 +65,6 @@ class PhotoGallery extends Component {
                 : null
             }
           </div>
-          {/*  <ImgLightbox imgUrl={this.state.imgUrl} isOpen={this.state.lightboxIsOpen} closeLightbox={this.closeLightbox} /> */ }
         </div>
         <div id="page-numbers" className="row u-full-width u-max-full-width">
           {
@@ -105,17 +81,20 @@ class PhotoGallery extends Component {
             })
           }
         </div>
-        <div className="row arrows u-full-width u-max-full-width">
-          <div className="back"></div>
-          <div className="next"></div>
-        </div>
+        {
+          this.state.searchTerm && this.state.searchTerm !== '' ?
+          <div className="row arrows u-full-width u-max-full-width">
+            <div className="back"></div>
+            <div className="next"></div>
+          </div>
+          : null
+        }
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  console.log('state', state)
   return {
     images: state.images.images || [],
     searchTerm: state.search.searchTerm

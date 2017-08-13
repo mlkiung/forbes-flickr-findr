@@ -13,6 +13,10 @@
   top: 3rem; */
 }
 
+/* .browser-button {
+  float: right !important;
+} */
+
 /* .search {
   display: flex;
   flex-direction: column;
@@ -92,14 +96,28 @@
 /* ********* MEDIA QUERIES ************* */
 
 @media (min-width: 320px) {
+  .search-false {
+    margin-top: 40%;
+  }
+
+  .search-true {
+    margin: 5% 0;
+  }
+  .search input {
+    width: 100%;
+  }
   .search button {
     float: none;
+    width: 100%;
   }
 }
 
 @media (min-width: 400px) {
   .header {
     margin: 0 2rem;
+  }
+  .search-false {
+    margin-top: 40%
   }
 }
 
@@ -155,6 +173,10 @@
   .title {
     padding-left: 4rem;
   }
+
+  .search-false {
+    margin-top: 40%;
+  }
 }
 
 /* Larger than tablet */
@@ -191,6 +213,13 @@
   }
   .title {
     padding-left: 3rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .search-false {
+    margin-bottom: 25%;
+    margin-top: 25%;
   }
 }
 
