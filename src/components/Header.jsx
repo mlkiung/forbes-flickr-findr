@@ -7,11 +7,18 @@ class Header extends Component {
     super(props)
 
     this.state = {
-      searchTerm: ''
+      searchTerm: '',
+      mobile: false,
     }
 
     this.onSearchChange = this.onSearchChange.bind(this)
     this.onSearchSubmit = this.onSearchSubmit.bind(this)
+  }
+
+  componentDidMount() {
+    const mediaQuery = window.matchMedia("(min-width: 760px)").matches
+    console.log('media', mediaQuery)
+    mediaQuery ? this.setState({ mobile: true }) : this.setState({ mobile: false })
   }
 
   onSearchChange(event) {
@@ -38,6 +45,11 @@ class Header extends Component {
             </div>
             <div className="search six columns">
               <label htmlFor="search-flickr">Search Flickr</label>
+              {
+                this.state.mobile
+                  ? null
+                  : <button className="browser-button" type="submit" onClick={this.onSearchSubmit}>Search</button>
+              }
               <input
                 type="text"
                 placeholder="Puppies?"
@@ -47,7 +59,11 @@ class Header extends Component {
                 // onClick={this.onSearchSubmit}
                 // onKeyDown={this.onSearchKeydown}
               />
-              <button type="submit" onClick={this.onSearchSubmit}>Search</button>
+              {
+                this.state.mobile
+                  ? <button className="mobile-button" type="submit" onClick={this.onSearchSubmit}>Search</button>
+                  : null
+              }
             </div>
           </div>
         </div>

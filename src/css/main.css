@@ -7,13 +7,19 @@
   justify-content: center;
 }
 
-.search {
+.search button {
+  float: right;
+  /* position: relative;
+  top: 3rem; */
+}
+
+/* .search {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 4rem;
   padding-right: 1rem;
-}
+} */
 
 .title {
   margin-top: 4rem;
@@ -84,6 +90,12 @@
 }
 
 /* ********* MEDIA QUERIES ************* */
+
+@media (min-width: 320px) {
+  .search button {
+    float: none;
+  }
+}
 
 @media (min-width: 400px) {
   .header {
