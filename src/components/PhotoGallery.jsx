@@ -29,6 +29,10 @@ class PhotoGallery extends Component {
     this.props.images !== nextProps.images
       ? this.setState({ images: nextProps.images })
       : null
+
+    this.props.searchTerm !== nextProps.searchTerm
+      ? this.setState({ searchTerm: nextProps.searchTerm })
+      : null
   }
 
   handleClick(event) {
@@ -54,6 +58,8 @@ class PhotoGallery extends Component {
     for (let i = 1; i <= numberOfPages; i++) {
       pageNumbers.push(i)
     }
+
+    console.log('searchTerm???', this.state.searchTerm)
 
     return (
       <div id="main"   className="u-full-width u-max-full-width" >
