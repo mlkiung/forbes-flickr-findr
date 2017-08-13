@@ -16,9 +16,9 @@ const App = (props) => {
   );
 }
 
-// const mapStateToProps = state => ({ searchTerm: state.searchTerm || '' })
+// const mstp = state => ({ searchTerm: state.searchTerm || '' })
 
-// export default connect(mapStateToProps)(App)
+// export default connect(mstp)(App)
 
 export default App
 

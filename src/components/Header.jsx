@@ -77,7 +77,7 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ searchTerm: state.searchTerm || null })
-const mapDispatchToProps = (dispatch) => ({ newSearch, getImages })
+const mstp = (state) => ({ searchTerm: state.searchTerm || null })
+const mdtp = (dispatch) => ({ newSearch, getImages })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default connect(mstp, mdtp)(Header)

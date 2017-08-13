@@ -14,8 +14,6 @@ class PhotoGallery extends Component {
       images: [],
       imgUrl: '',
     }
-
-    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -35,10 +33,34 @@ class PhotoGallery extends Component {
       : null
   }
 
-  handleClick(event) {
+  handleClick = event => {
     this.setState({
       currentPage: Number(event.target.id)
     })
+  }
+
+  handleClickArrow = event => {
+    let newCurrentPage = this.state.currentPage
+    let numberOfPages = Math.ceil(this.state.images.length / this.state.imagesPerPage)
+
+    if (event.target.id === 'back') {
+      if (newCurrentPage === 1) {
+        newCurrentPage = numberOfPages
+      }
+      else {
+        newCurrentPage--
+      }
+      this.setState({ currentPage: newCurrentPage})
+    }
+    else {
+      if (newCurrentPage === numberOfPages) {
+        newCurrentPage = 1
+      }
+      else {
+        newCurrentPage++
+      }
+      this.setState({ currentPage: newCurrentPage })
+    }
   }
 
   render() {
@@ -58,6 +80,8 @@ class PhotoGallery extends Component {
     for (let i = 1; i <= numberOfPages; i++) {
       pageNumbers.push(i)
     }
+
+    const arrows =
 
     console.log('searchTerm???', this.state.searchTerm)
 
@@ -90,8 +114,8 @@ class PhotoGallery extends Component {
         {
           this.state.searchTerm && this.state.searchTerm !== '' ?
           <div className="row arrows u-full-width u-max-full-width">
-            <div className="back"></div>
-            <div className="next"></div>
+            <button onClick={this.handleClickArrow}><div id="back" className="back"></div></button>
+            <button onClick={this.handleClickArrow}><div id="next" className="next"></div></button>
           </div>
           : null
         }
@@ -100,13 +124,13 @@ class PhotoGallery extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mstp = state => {
   return {
     images: state.images.images || [],
     searchTerm: state.search.searchTerm
   }
 }
 
-const mapDispatchToProps = dispatch => ({ getImages })
+const mdtp = dispatch => ({ getImages })
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhotoGallery)
+export default connect(mstp, mdtp)(PhotoGallery)
