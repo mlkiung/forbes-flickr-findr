@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 // import fetchJsonp from 'fetch-jsonp'
 import { getImages } from '../redux/actions'
 import Photos from './Photos'
+// import ImgLightbox from './ImgLightbox'
+// import Lightbox from 'react-images'
 
 
 class PhotoGallery extends Component {
@@ -11,18 +13,23 @@ class PhotoGallery extends Component {
     super(props)
 
     this.state = {
-      // searchTerm: this.props.searchTerm,
+      searchTerm: '',
       currentPage: 1,
       imagesPerPage: 10,
       images: [],
+      // lightboxIsOpen: false,
+      imgUrl: '',
     }
 
     this.handleClick = this.handleClick.bind(this)
+    // this.handlePhotoClick = this.handlePhotoClick.bind(this)
+    // this.closeLightbox = this.closeLightbox.bind(this)
   }
 
   componentDidMount() {
     this.setState({
-      images: this.props.images
+      images: this.props.images,
+      searchTerm: this.props.searchTerm
     })
   }
 
@@ -37,6 +44,21 @@ class PhotoGallery extends Component {
       currentPage: Number(event.target.id)
     })
   }
+
+  // closeLightbox() {
+  //   this.setState({
+  //     lightboxIsOpen: false
+  //   })
+  // }
+
+  // handlePhotoClick(event) {
+  //   // event.preventDefault()
+  //   event.target && console.log(event.target)
+  //   this.setState({
+  //     // lightboxIsOpen: true,
+  //     imgUrl: event.target.name
+  //   })
+  // }
 
   render() {
     const { images, currentPage, imagesPerPage } = this.state
@@ -62,10 +84,11 @@ class PhotoGallery extends Component {
           <div id="container" className="section">
             {
               currentImages && currentImages !== []
-                ? <Photos currentImages={currentImages} />
+                ? <Photos currentImages={currentImages} searchTerm={this.state.searchTerm} />
                 : null
             }
           </div>
+          {/*  <ImgLightbox imgUrl={this.state.imgUrl} isOpen={this.state.lightboxIsOpen} closeLightbox={this.closeLightbox} /> */ }
         </div>
         <div id="page-numbers" className="row u-full-width u-max-full-width">
           {
@@ -94,7 +117,8 @@ class PhotoGallery extends Component {
 const mapStateToProps = state => {
   console.log('state', state)
   return {
-    images: state.images.images || []
+    images: state.images.images || [],
+    searchTerm: state.search.searchTerm
   }
 }
 
