@@ -11,7 +11,6 @@ class Image extends React.Component {
 
   handleImgLoad = () => {
     this.setState({ loaded: true })
-    console.log('loaded')
   }
 
   render() {
@@ -33,8 +32,7 @@ class Image extends React.Component {
             src={img.photo}
             name={img.photo}
             alt={img.photo}
-            id={`${img.photo}---${img.i}`}
-            onLoad={() => {console.log('image loaded')}} />
+            id={`${img.photo}---${img.i}`} />
         </button>
         {
           this.props.showImgModal ? (

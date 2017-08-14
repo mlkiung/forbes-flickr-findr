@@ -18,14 +18,12 @@ class Header extends Component {
 
   componentDidMount() {
     const mediaQuery = window.matchMedia("(min-width: 1200px)").matches
-    console.log('media', mediaQuery)
     mediaQuery ? this.setState({ mobile: false }) : this.setState({ mobile: true })
     this.state.searchTerm === '' ? this.setState({ emptyPage: true }) : this.setState({ emptyPage: false })
   }
 
   onSearchChange(event) {
     event.preventDefault()
-    console.log(event.target.value)
     this.setState({
       searchTerm: event.target.value
     })
@@ -36,7 +34,6 @@ class Header extends Component {
     this.props.newSearch(this.state.searchTerm)
     this.props.getImages(this.state.searchTerm)
     this.setState({ emptyPage: false, searchTerm: '' })
-    console.log(this.state, this.props)
   }
 
   handleReset = e => {
@@ -47,7 +44,6 @@ class Header extends Component {
 
   render() {
     let searchClassName = this.state.emptyPage ? 'search-false' : 'search-true'
-    console.log(searchClassName)
     return (
       <div className={`header ${searchClassName}`}>
         <div className="container u-full-width u-max-full-width">
