@@ -21,17 +21,12 @@ class PhotoGallery extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.props.images !== nextProps.images
-      ? this.setState({ images: nextProps.images })
-      : null
+    if (this.props.images !== nextProps.images) {
+      this.setState({ images: nextProps.images })
+    }
 
-    this.props.searchTerm !== nextProps.searchTerm
-      ? this.setState({ searchTerm: nextProps.searchTerm })
-      : null
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    if (this.state.images !== nextProps.images) {
+    if (this.props.searchTerm !== nextProps.searchTerm) {
+      this.setState({ searchTerm: nextProps.searchTerm })
     }
   }
 

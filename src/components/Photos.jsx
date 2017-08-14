@@ -19,15 +19,15 @@ class Photos extends Component {
   }
 
   componentWillReceiveProps(np) {
-    this.props.currentImages !== np.currentImages
-      ? this.setState({ currentImages: np.currentImages })
-      : null
+    if (this.props.currentImages !== np.currentImages) {
+      this.setState({ currentImages: np.currentImages })
+    }
   }
 
   handleClick = event => {
     event.preventDefault()
     const imgInfo = event.target.id.split('---')
-    const [url, i] = imgInfo
+    const [url] = imgInfo
 
     this.setState({
       clickedImg: url,
