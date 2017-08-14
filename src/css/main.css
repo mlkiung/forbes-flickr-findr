@@ -12,7 +12,7 @@ html {
 }
 
 #root {
-  height: 100%;
+  height: inherit;
 }
 
 .main {
@@ -22,6 +22,10 @@ html {
 .title, .arrows {
   display: flex;
   justify-content: center;
+}
+
+.title button {
+  border: none;
 }
 
 .search button {
@@ -50,6 +54,10 @@ html {
 
 #page-numbers {
   background-color: transparent;
+}
+
+#page-numbers div {
+  font-size: 1.5rem;
 }
 
 .arrows button {
@@ -181,11 +189,11 @@ html {
   }
 
   .title {
-    padding-left: 4rem;
+    padding-left: 0rem;
   }
 
   .search-false {
-    margin-top: 40%;
+    margin-top: 60%;
   }
 }
 
@@ -226,14 +234,32 @@ html {
   .search input {
     width: 73%;
   }
+
+  .search-false {
+    margin-top: 27%;
+  }
+
+  .title {
+    padding-left: 4rem;
+  }
+}
+
+@media (min-width: 1280px) and (min-height: 900px) {
+  .search-false {
+    margin-top: 33%;
+  }
 }
 
 @media (min-width: 1090px) {
-  .title {
-    padding-left: 3rem;
-  }
+
   .modal-content {
-    margin-left: 10%;
+    margin-left: 10% !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-content {
+    margin-left: 15% !important;
   }
 }
 
@@ -246,6 +272,14 @@ html {
   #page-numbers {
     position: fixed;
     bottom: 0;
+  }
+
+  .modal-content {
+    margin-left: 18% !important;
+  }
+
+  .search-false {
+    margin-top: 29%;
   }
 }
 

@@ -39,6 +39,11 @@ class Header extends Component {
     console.log(this.state, this.props)
   }
 
+  handleReset = e => {
+    e.preventDefault()
+    this.setState({ searchTerm: '', emptyPage: true })
+  }
+
   render() {
     let searchClassName = this.state.emptyPage ? 'search-false' : 'search-true'
     console.log(searchClassName)
@@ -47,7 +52,9 @@ class Header extends Component {
         <div className="container u-full-width u-max-full-width">
           <div className="row">
             <div className="title six columns">
-              <h1 className="logo">Flickr Findr</h1>
+              <button onClick={this.handleReset}>
+                <h1 className="logo">Flickr Findr</h1>
+              </button>
             </div>
             <div className={`search six columns`}>
               <form>
