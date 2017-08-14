@@ -8,7 +8,7 @@ class Photos extends Component {
     this.state = {
       showImgModal: false,
       clickedImg: '',
-      currentImages: this.props.currentImages,
+      currentImages: [],
     }
   }
 
@@ -18,12 +18,11 @@ class Photos extends Component {
   //   }
   // }
 
-  componentDidMount() {
-    this.setState({
-      // currentImages: this.props.currentImages,
-      searchTerm: this.props.searchTerm
-    })
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     currentImages: this.props.currentImages,
+  //   })
+  // }
 
   componentWillReceiveProps(np) {
     this.props.currentImages !== np.currentImages
@@ -54,13 +53,12 @@ class Photos extends Component {
     return (
       <ul id="content">
         {
-          this.props.currentImages && this.props.currentImages.map((photo, i) => {
+          this.state.currentImages && this.state.currentImages.map((photo, i) => {
             const img = `img${photo}`
             const modal = `modal${i}`
             const caption = `caption${i}`
             const modalImg = `img${i}`
             const imgInfo = { img, modal, caption, modalImg, photo, i }
-            // console.log(imgInfo)
             return (
               <Image key={`Image${i}`} imgInfo={imgInfo} handleClick={this.handleClick} closeModal={this.closeModal} showImgModal={this.state.showImgModal} clickedImg={this.state.clickedImg} />
             )

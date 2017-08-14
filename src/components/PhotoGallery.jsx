@@ -39,7 +39,7 @@ class PhotoGallery extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if (this.state.images !== nextState.images) {
+    if (this.state.images !== nextProps.images) {
       console.log('different states in PhotoGallery')
     }
   }

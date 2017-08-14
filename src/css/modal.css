@@ -57,7 +57,6 @@
 
 @media (min-width: 1090px) {
   .modal-content {
-    /* max-height: 100vh; */
     max-width: none;
   }
 }
