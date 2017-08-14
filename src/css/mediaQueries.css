@@ -132,11 +132,11 @@ img .hoverZoomLink {
 
 @media (max-width : 2000px) {
 	#content {
-		-moz-column-count: 3;
+		-moz-column-count: 4;
 		-moz-column-gap: 0px;
-		-webkit-column-count: 3;
+		-webkit-column-count: 4;
 		-webkit-column-gap: 0px;
-		column-count: 3;
+		column-count: 4;
     column-gap: 0px;
     width: 1500px;
 		width: calc(100vw - 10%);
