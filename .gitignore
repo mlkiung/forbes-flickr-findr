@@ -25,3 +25,5 @@ src/config.js
 logic.js
 /src/components/_Pagination.jsx
 /src/css/keyframes.css
+firebase.json
+.firebaserc
