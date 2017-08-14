@@ -1,40 +1,62 @@
 import React from 'react'
 
-const Image = (props) => {
-  const img = props.imgInfo
-  const styles = {
-    modalStyle: {
-      background: `url(${props.clickedImg}) center center / contain no-repeat`
-    },
-    imgStyle: {
-      display: 'none'
+class Image extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      loaded: false,
     }
   }
 
-  return (
-    <li className="img-container" key={img.photo}>
-      <button onClick={props.handleClick}>
-        <img
-          className="my-img"
-          src={img.photo}
-          name={img.photo}
-          alt={img.photo}
-          id={`${img.photo}---${img.i}`}
-          onLoad={() => {console.log('image loaded')}} />
-      </button>
-      {
-        props.showImgModal ? (
-          <div className="modal imgModal" id={img.modal}>
-            <span
-              className="close"
-              onClick={props.closeModal}>&times;</span>
-            <div id={img.modalImg} className="modal-content" style={styles.modalStyle}></div>
-            <img src={img.modalImg} style={styles.imgStyle} alt="" />
-          </div>
-        ) : null
+  handleImgLoad = () => {
+    this.setState({ loaded: true })
+    console.log('loaded')
+  }
+
+  handleImgUnload = () => {
+    this.setState({ loaded: false })
+  }
+
+  render() {
+    const img = this.props.imgInfo
+    const styles = {
+      modalStyle: {
+        background: `url(${this.props.clickedImg}) center center / contain no-repeat`
+      },
+      imgStyle: {
+        display: 'none'
       }
-    </li>
-  )
+    }
+
+    return (
+      <li className="img-container" key={img.photo}>
+        <button onClick={this.props.handleClick}>
+          <img
+            className="my-img"
+            src={img.photo}
+            name={img.photo}
+            alt={img.photo}
+            id={`${img.photo}---${img.i}`}
+            onLoad={() => {console.log('image loaded')}} />
+        </button>
+        {
+          this.props.showImgModal ? (
+            <div className="modal imgModal" id={img.modal}>
+              <span
+                className="close"
+                onClick={this.props.closeModal}>&times;</span>
+              {
+                this.state.loaded ?
+                <div id={img.modalImg} className="modal-content" style={styles.modalStyle}></div> : null
+              }
+              <img src={this.props.clickedImg} style={styles.imgStyle} alt="" onLoad={this.handleImgLoad} />
+            </div>
+          ) : null
+        }
+      </li>
+    )
+  }
 }
 
 export default Image

@@ -12,11 +12,11 @@ class Photos extends Component {
     }
   }
 
-  // componentWillMount() {
-  //   if (this.props.currentImages !== []) {
-  //     this.setState({currentImages: this.props.currentImages})
-  //   }
-  // }
+  componentWillMount() {
+    if (this.props.currentImages !== []) {
+      this.setState({currentImages: this.props.currentImages})
+    }
+  }
 
   // componentDidMount() {
   //   this.setState({
