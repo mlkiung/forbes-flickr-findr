@@ -38,9 +38,9 @@ class PhotoGallery extends Component {
       : null
   }
 
-    componentWillUpdate(nextProps, nextState) {
+  componentWillUpdate(nextProps, nextState) {
     if (this.state.images !== nextState.images) {
-      this.props.getImages(this.state.searchTerm)
+      console.log('different states in PhotoGallery')
     }
   }
 
