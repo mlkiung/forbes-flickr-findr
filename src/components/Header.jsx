@@ -20,7 +20,7 @@ class Header extends Component {
     const mediaQuery = window.matchMedia("(min-width: 1200px)").matches
     console.log('media', mediaQuery)
     mediaQuery ? this.setState({ mobile: false }) : this.setState({ mobile: true })
-    this.state.searchTerm !== '' ? this.setState({ emptyPage: false }) : this.setState({ emptyPage: true })
+    this.state.searchTerm === '' ? this.setState({ emptyPage: true }) : this.setState({ emptyPage: false })
   }
 
   onSearchChange(event) {
@@ -35,7 +35,8 @@ class Header extends Component {
     event.preventDefault()
     this.props.newSearch(this.state.searchTerm)
     this.props.getImages(this.state.searchTerm)
-    this.setState({ emptyPage: false })
+    this.setState({ emptyPage: false, searchTerm: '' })
+    console.log(this.state, this.props)
   }
 
   render() {
@@ -77,7 +78,7 @@ class Header extends Component {
   }
 }
 
-const mstp = (state) => ({ searchTerm: state.searchTerm || null })
+const mstp = (state) => ({})
 const mdtp = (dispatch) => ({ newSearch, getImages })
 
 export default connect(mstp, mdtp)(Header)

@@ -1,6 +1,19 @@
-/* body {
-  background: url('../images/contactSheet-bg.jpg') center center / contain no-repeat;
-} */
+html {
+  height: fit-content;
+  background-color: #eae8ec;
+}
+
+.search-true:root {
+  height: auto;
+}
+
+.search-false:root {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
 
 .main {
   margin: 2rem 0;
@@ -28,20 +41,29 @@
   list-style-type: none;
 }
 
-#page-numbers, .arrows {
+.arrows {
   position: fixed;
   bottom: 0;
   padding: 2rem 0;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.page-number {
-   margin: 0 .5rem;
-   background-color: white;
+#page-numbers {
+  background-color: transparent;
+}
+
+.arrows button {
+  border: none;
 }
 
 .page-number {
-  box-shadow: 0.5px 0.5px 5px 0px teal;
+  margin: 0 .5rem;
+  background-color: white;
+}
+
+.page-number {
+  box-shadow: 0.5px 0.5px 5px 0px lightgray;
+  border: none;
 }
 
 .photo-gallery {
@@ -51,6 +73,7 @@
 
 .photo-gallery img {
   border-radius: 3%;
+  box-shadow: 0 0 5px rgba(48, 39, 54, 0.9);
 }
 
 #page-numbers {
@@ -87,7 +110,8 @@
 
 #content img{
 	display: inline-block;
-	margin-bottom: 0px;
+  margin-bottom: 0px;
+  margin-top: 10px;
 	width: 100%;
 }
 
@@ -171,17 +195,20 @@
    #page-numbers {
       display: flex;
       justify-content: center;
+      position: fixed;
+      bottom: 0;
       margin-bottom: 2rem;
       padding: 2rem 0;
+      background-color: rgba(255, 255, 255, 0.5);
     }
 
-    .arrows {
-      display: none;
-    }
+  .arrows {
+    display: none;
+  }
 
-    .header {
-      margin-left: 1em;
-    }
+  .header {
+    margin-left: 1em;
+  }
 }
 
 @media (min-width: 1000px) {

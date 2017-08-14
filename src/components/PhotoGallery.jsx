@@ -81,10 +81,6 @@ class PhotoGallery extends Component {
       pageNumbers.push(i)
     }
 
-    const arrows =
-
-    console.log('searchTerm???', this.state.searchTerm)
-
     return (
       <div id="main"   className="u-full-width u-max-full-width" >
         <div className="photo-gallery">
@@ -96,27 +92,29 @@ class PhotoGallery extends Component {
             }
           </div>
         </div>
-        <div id="page-numbers" className="row u-full-width u-max-full-width">
-          {
-            pageNumbers.map(number => {
-              return (
-                <div
-                  className="page-number button"
-                  key={number}
-                  id={number}
-                  onClick={this.handleClick}>
-                  {number}
-                </div>
-              )
-            })
-          }
-        </div>
         {
           this.state.searchTerm && this.state.searchTerm !== '' ?
-          <div className="row arrows u-full-width u-max-full-width">
-            <button onClick={this.handleClickArrow}><div id="back" className="back"></div></button>
-            <button onClick={this.handleClickArrow}><div id="next" className="next"></div></button>
-          </div>
+            <div>
+              <div id="page-numbers" className="row u-full-width u-max-full-width">
+                {
+                  pageNumbers.map(number => {
+                    return (
+                      <div
+                        className="page-number button"
+                        key={number}
+                        id={number}
+                        onClick={this.handleClick}>
+                        {number}
+                      </div>
+                    )
+                  })
+                }
+              </div>
+              <div className="row arrows u-full-width u-max-full-width">
+                <button onClick={this.handleClickArrow}><div id="back" className="back"></div></button>
+                <button onClick={this.handleClickArrow}><div id="next" className="next"></div></button>
+              </div>
+            </div>
           : null
         }
       </div>

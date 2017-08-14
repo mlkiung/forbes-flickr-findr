@@ -1,0 +1,17 @@
+body {
+  background-color: transparent;
+}
+
+html {
+  position: relative;
+  min-height: 100vh;
+  max-height: fit-content;
+  top: 0;
+  bottom: 0;
+  background-color: #eae8ec;
+  background-image: -webkit-linear-gradient(bottom left, rgba(48, 39, 54, 0.9) 50%, rgba(200, 195, 205, 0.8) 50%);
+  background-image: -moz-linear-gradient(bottom left, rgba(48, 39, 54, 0.9) 50%, rgba(200, 195, 205, 0.8) 50%);
+  background-image: -o-linear-gradient(bottom left, rgba(48, 39, 54, 0.9) 50%, rgba(200, 195, 205, 0.8) 50%);
+  background-image: linear-gradient(to top right, rgba(48, 39, 54, 0.9), rgba(200, 195, 205, 0.8));
+  background-repeat: no-repeat;
+}
