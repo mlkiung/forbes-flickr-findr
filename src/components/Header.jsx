@@ -50,6 +50,7 @@ class Header extends Component {
               <h1 className="logo">Flickr Findr</h1>
             </div>
             <div className={`search six columns`}>
+              <form>
               <label htmlFor="search-flickr">Search Flickr</label>
               {
                 this.state.mobile
@@ -61,15 +62,13 @@ class Header extends Component {
                 placeholder="Puppies?"
                 id="search-flickr"
                 value={this.state.searchTerm}
-                onChange={this.onSearchChange}
-                // onClick={this.onSearchSubmit}
-                // onKeyDown={this.onSearchKeydown}
-              />
+                onChange={this.onSearchChange}/>
               {
                 this.state.mobile
                   ? <button className="mobile-button" type="submit" onClick={this.onSearchSubmit}>Search</button>
                   : null
-              }
+                }
+                </form>
             </div>
           </div>
         </div>
