@@ -2,7 +2,8 @@
 
 @media (min-width: 320px) {
   .search-false {
-    margin-top: 40%;
+    margin-top: calc(100vh - 120%);
+    margin-bottom: auto;
   }
 
   .search-true {
@@ -20,9 +21,6 @@
 @media (min-width: 400px) {
   .header {
     margin: 0 2rem;
-  }
-  .search-false {
-    margin-top: 40%
   }
 }
 

@@ -24,7 +24,7 @@ const Image = (props) => {
               id={img.modalImg}
               className="modal-content"
               src={props.clickedImg}
-              alt={`${props.searchTerm} photo from Flickr`} />
+              alt={`"${props.searchTerm}," returned from Flickr`} />
           </div>
         ) : null
       }

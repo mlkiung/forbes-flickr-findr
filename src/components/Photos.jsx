@@ -62,7 +62,7 @@ class Photos extends Component {
             const imgInfo = { img, modal, caption, modalImg, photo, i }
             // console.log(imgInfo)
             return (
-              <Image imgInfo={imgInfo} handleClick={this.handleClick} closeModal={this.closeModal} showImgModal={this.state.showImgModal} clickedImg={this.state.clickedImg} />
+              <Image key={`Image${i}`} imgInfo={imgInfo} handleClick={this.handleClick} closeModal={this.closeModal} showImgModal={this.state.showImgModal} clickedImg={this.state.clickedImg} />
             )
           })
         }
