@@ -2,12 +2,10 @@ import React from 'react'
 
 const Image = (props) => {
   const img = props.imgInfo
-  // img = img.img
-  console.log('img', img.img)
-
   const styles = {
     background: `url(${props.clickedImg}) center center / contain no-repeat`
   }
+  
   return (
     <li className="img-container" key={img.photo}>
       <button onClick={props.handleClick}>

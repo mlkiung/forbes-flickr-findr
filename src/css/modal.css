@@ -57,7 +57,7 @@
 
 @media (min-width: 1090px) {
   .modal-content {
-    max-height: 100vh;
+    /* max-height: 100vh; */
     max-width: none;
   }
 }
@@ -66,6 +66,8 @@
 .modal-content {
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 2s;
+  -moz-animation-name: zoom;
+  -moz-animation-duration: 2s;
   animation-name: zoom;
   animation-duration: 2s;
 }

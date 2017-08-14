@@ -6,6 +6,7 @@
 html {
   background-color: #eae8ec;
   -webkit-animation: fadeIn 2s ease-in-out forwards;
+  -moz-animation: fadeIn 2s ease-in-out forwards;
   animation: fadeIn 2s ease-in-out forwards;
 }
 
@@ -97,6 +98,7 @@ html {
   border-radius: 3%;
   box-shadow: 0 0 5px rgba(48, 39, 54, 0.9);
   -webkit-animation: fadeIn 1s ease-in;
+  -moz-animation: fadeIn 1s ease-in;
   animation: fadeIn 1s ease-in;
   display: inline-block;
   margin-bottom: 0px;
