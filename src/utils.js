@@ -9,13 +9,4 @@ const formatNewData = data => {
   })
 }
 
-/*
-Determines whether or not a search has happened for styling
- */
-
-let hasSearchHappened = () => {
-  const currentState = store.getState()
-  return currentState.search.searchTerm !== '' ? true : false
-  }
-
-export { formatNewData, hasSearchHappened }
+export { formatNewData }

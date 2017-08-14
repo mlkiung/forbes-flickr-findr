@@ -37,8 +37,8 @@ class Photos extends Component {
     const [url, i] = imgInfo
 
     this.setState({
-      showImgModal: true,
-      clickedImg: url
+      clickedImg: url,
+      showImgModal: true
     })
   }
 

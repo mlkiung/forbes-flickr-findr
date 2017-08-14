@@ -4,6 +4,10 @@ const Image = (props) => {
   const img = props.imgInfo
   // img = img.img
   console.log('img', img.img)
+
+  const styles = {
+    background: `url(${props.clickedImg}) center center / contain no-repeat`
+  }
   return (
     <li className="img-container" key={img.photo}>
       <button onClick={props.handleClick}>
@@ -20,11 +24,7 @@ const Image = (props) => {
             <span
               className="close"
               onClick={props.closeModal}>&times;</span>
-            <img
-              id={img.modalImg}
-              className="modal-content"
-              src={props.clickedImg}
-              alt={`"${props.searchTerm}," returned from Flickr`} />
+            <div id={img.modalImg} className="modal-content" style={styles}></div>
           </div>
         ) : null
       }
