@@ -1,7 +1,9 @@
 import React from 'react'
 
 const Image = (props) => {
-  const img  = props.imgInfo
+  const img = props.imgInfo
+  // img = img.img
+  console.log('img', img.img)
   return (
     <li className="img-container" key={img.photo}>
       <button onClick={props.handleClick}>
@@ -23,7 +25,6 @@ const Image = (props) => {
               className="modal-content"
               src={props.clickedImg}
               alt={`${props.searchTerm} photo from Flickr`} />
-            <div id={img.caption} className="caption"></div>
           </div>
         ) : null
       }

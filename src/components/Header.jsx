@@ -42,8 +42,7 @@ class Header extends Component {
   handleReset = e => {
     e.preventDefault()
     this.setState({ searchTerm: '', emptyPage: true })
-    this.props.newSearch('')
-    this.props.getImages('')
+    window.location.reload()
   }
 
   render() {

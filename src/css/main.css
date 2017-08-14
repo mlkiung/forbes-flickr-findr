@@ -91,9 +91,15 @@ html {
   padding-bottom: 10%;
 }
 
-.photo-gallery img {
+.my-img {
   border-radius: 3%;
   box-shadow: 0 0 5px rgba(48, 39, 54, 0.9);
+  -webkit-animation: fadeIn 1s ease-in;
+  animation: fadeIn 1s ease-in;
+}
+
+.my-img:hover {
+  opacity: 0.7;
 }
 
 #page-numbers {
@@ -307,12 +313,14 @@ img .hoverZoomLink {
 		-webkit-column-count: 3;
 		-webkit-column-gap: 0px;
 		column-count: 3;
-		column-gap: 0px;
-		width: 1500px;
+    column-gap: 0px;
+    width: 1500px;
+		width: calc(100vw - 10%);
 	}
 
 	#container {
-		width: 1500px;
+    width: 1500px;
+		width: calc(100vw - 10%);
 	}
 }
 
@@ -324,11 +332,13 @@ img .hoverZoomLink {
 		-webkit-column-gap: 0px;
 		column-count: 3;
 		column-gap: 0px;
-		width: 1400px;
+    width: 1400px;
+    width: calc(100vw - 10%);
 	}
 
 	#container {
-		width: 1400px;
+    width: 1400px;
+    width: calc(100vw - 10%);
 	}
 }
 
@@ -340,11 +350,13 @@ img .hoverZoomLink {
 		-webkit-column-gap: 0px;
 		column-count: 3;
 		column-gap: 0px;
-		width: 1200px;
+    width: 1200px;
+    width: calc(100vw - 10%);
 	}
 
 	#container {
-		width: 1200px;
+    width: 1200px;
+    width: calc(100vw - 10%);
 	}
 }
 
@@ -356,11 +368,13 @@ img .hoverZoomLink {
 		-webkit-column-gap: 0px;
 		column-count: 3;
 		column-gap: 0px;
-		width: 1000px;
+    width: 1000px;
+    width: calc(100vw - 10%);
 	}
 
 	#container {
-		width: 1000px;
+    width: 1000px;
+    width: calc(100vw - 10%);
 	}
 }
 
@@ -372,11 +386,13 @@ img .hoverZoomLink {
 		-webkit-column-gap: 0px;
 		column-count: 2;
 		column-gap: 0px;
-		width: 900px;
+    width: 900px;
+    width: calc(100vw - 10%);
 	}
 
 	#container {
-		width: 900px;
+    width: 900px;
+		width: calc(100vw - 10%);
 	}
 }
 
@@ -388,11 +404,13 @@ img .hoverZoomLink {
 		-webkit-column-gap: 0px;
 		column-count: 2;
 		column-gap: 0px;
-		width: 700px;
+    width: 700px;
+    width: calc(100vw - 10%);
 	}
 
 	#container {
-		width: 700px;
+    width: 700px;
+    width: calc(100vw - 10%);
   }
 
   .img-container {
@@ -413,11 +431,13 @@ img .hoverZoomLink {
 		-webkit-column-gap: 0px;
 		column-count: 2;
 		column-gap: 0px;
-		width: 500px;
+     width: 500px;
+    width: calc(100vw - 10%);
 	}
 
 	#container {
-		width: 500px;
+    width: 500px;
+    width: calc(100vw - 10%);
 	}
 }
 
@@ -429,11 +449,13 @@ img .hoverZoomLink {
 		-webkit-column-gap: 0px;
 		column-count: 1;
 		column-gap: 0px;
-		width: 400px;
+    width: 400px;
+    width: calc(100vw - 10%);
   }
 
   #container {
     width: 400px;
+    width: calc(100vw - 10%);
   }
 
   .img-container {
@@ -450,11 +472,13 @@ img .hoverZoomLink {
 		-webkit-column-gap: 0px;
 		column-count: 1;
 		column-gap: 0px;
-		width: 300px;
+    width: 300px;
+    width: calc(100vw - 10%);
   }
 
   #container {
     width: 300px;
+    width: calc(100vw - 10%);
   }
 
   .img-container {

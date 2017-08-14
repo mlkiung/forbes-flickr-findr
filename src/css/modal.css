@@ -1,6 +1,6 @@
-.my-img:hover {
+/* .my-img:hover {
   opacity: 0.7;
-}
+} */
 
 .img-container button {
   border: none;
@@ -88,9 +88,9 @@
 /* Add Animation - Zoom in the Modal */
 .modal-content, .caption {
   -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.6s;
+  -webkit-animation-duration: 2s;
   animation-name: zoom;
-  animation-duration: 0.6s;
+  animation-duration: 2s;
 }
 
 @-webkit-keyframes zoom {

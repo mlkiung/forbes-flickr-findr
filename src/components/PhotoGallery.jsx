@@ -16,12 +16,17 @@ class PhotoGallery extends Component {
     }
   }
 
-  componentDidMount() {
-    this.setState({
-      images: this.props.images,
-      searchTerm: this.props.searchTerm
-    })
+  componentWillMount() {
+    // let images
+    if (this.props.images !== []) this.setState({images: this.props.images})
   }
+
+  // componentDidMount() {
+  //   this.setState({
+  //     images: this.props.images,
+  //     searchTerm: this.props.searchTerm
+  //   })
+  // }
 
   componentWillReceiveProps(nextProps) {
     this.props.images !== nextProps.images
@@ -31,6 +36,12 @@ class PhotoGallery extends Component {
     this.props.searchTerm !== nextProps.searchTerm
       ? this.setState({ searchTerm: nextProps.searchTerm })
       : null
+  }
+
+    componentWillUpdate(nextProps, nextState) {
+    if (this.state.images !== nextState.images) {
+      this.props.getImages(this.state.searchTerm)
+    }
   }
 
   handleClick = event => {
