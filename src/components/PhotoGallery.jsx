@@ -17,16 +17,8 @@ class PhotoGallery extends Component {
   }
 
   componentWillMount() {
-    // let images
     if (this.props.images !== []) this.setState({images: this.props.images})
   }
-
-  // componentDidMount() {
-  //   this.setState({
-  //     images: this.props.images,
-  //     searchTerm: this.props.searchTerm
-  //   })
-  // }
 
   componentWillReceiveProps(nextProps) {
     this.props.images !== nextProps.images
@@ -105,7 +97,7 @@ class PhotoGallery extends Component {
         </div>
         {
           this.state.searchTerm && this.state.searchTerm !== '' ?
-            <div>
+            <div className="pagination-container">
               <div id="page-numbers" className="row u-full-width u-max-full-width">
                 {
                   pageNumbers.map(number => {

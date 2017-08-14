@@ -18,12 +18,6 @@ class Photos extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.setState({
-  //     currentImages: this.props.currentImages,
-  //   })
-  // }
-
   componentWillReceiveProps(np) {
     this.props.currentImages !== np.currentImages
       ? this.setState({ currentImages: np.currentImages })

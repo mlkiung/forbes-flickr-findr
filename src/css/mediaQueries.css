@@ -57,10 +57,6 @@
 }
 
 @media (min-width: 755px) {
-  .title {
-    padding-left: 0rem;
-  }
-
   .search-false {
     margin-top: 60%;
   }
@@ -107,10 +103,6 @@
   .search-false {
     margin-top: 27%;
   }
-
-  .title {
-    padding-left: 4rem;
-  }
 }
 
 @media (min-width: 1280px) and (min-height: 900px) {
@@ -121,7 +113,7 @@
 
 @media (min-width: 1400px) {
   .search-false {
-    margin-bottom: 25%;
+    /* margin-bottom: 25%; */
     margin-top: 25%;
   }
 
@@ -129,11 +121,6 @@
     position: fixed;
     bottom: 0;
   }
-
-  /* .modal-content {
-    margin-left: 18% !important;
-    margin-left: calc(100vw - 25%);
-  } */
 
   .search-false {
     margin-top: 29%;
@@ -144,7 +131,7 @@ img .hoverZoomLink {
   display: none;
 }
 
-@media (max-width : 1699px) {
+@media (max-width : 2000px) {
 	#content {
 		-moz-column-count: 3;
 		-moz-column-gap: 0px;

@@ -1,14 +1,6 @@
 @import './css/normalize.css';
 @import './css/skeleton.css';
-/* @import './css/lightbox.css'; */
 @import './css/background.css';
 @import './css/main.css';
 @import './css/mediaQueries.css';
 @import './css/modal.css';
-
-
-/* body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-} */

@@ -1,5 +1,3 @@
-import store from './redux/store'
-
 /*
 Uses data returned from api and formats the information into a RESTful endpoint
 */

@@ -14,10 +14,6 @@ class Image extends React.Component {
     console.log('loaded')
   }
 
-  handleImgUnload = () => {
-    this.setState({ loaded: false })
-  }
-
   render() {
     const img = this.props.imgInfo
     const styles = {
