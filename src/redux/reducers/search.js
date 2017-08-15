@@ -1,5 +1,3 @@
-// import store from '../store'
-
 const initialState = {}
 
 const search = (state = initialState, action) => {
