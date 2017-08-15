@@ -16,11 +16,11 @@ class PhotoGallery extends Component {
     }
   }
 
-  componentWillMount() {
+  componentWillMount= () => {
     if (this.props.images !== []) this.setState({images: this.props.images})
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps = nextProps =>  {
     if (this.props.images !== nextProps.images) {
       this.setState({ images: nextProps.images })
     }
@@ -30,17 +30,19 @@ class PhotoGallery extends Component {
     }
   }
 
-  handleClick = event => {
+  handleClick = e => {
     this.setState({
-      currentPage: Number(event.target.id)
+      currentPage: Number(e.target.id)
     })
   }
 
-  handleClickArrow = event => {
+  // logic for arrow functionality
+  // arrows are displaying in lieu of pg numbers on mobile devices and small screens
+  handleClickArrow = e => {
     let newCurrentPage = this.state.currentPage
     let numberOfPages = Math.ceil(this.state.images.length / this.state.imagesPerPage)
 
-    if (event.target.id === 'back') {
+    if (e.target.id === 'back') {
       if (newCurrentPage === 1) {
         newCurrentPage = numberOfPages
       }
@@ -90,6 +92,7 @@ class PhotoGallery extends Component {
           </div>
         </div>
         {
+          // only display page numbers/arrows if a search has happened
           this.state.searchTerm && this.state.searchTerm !== '' ?
             <div className="pagination-container">
               <div id="page-numbers" className="row u-full-width u-max-full-width">
