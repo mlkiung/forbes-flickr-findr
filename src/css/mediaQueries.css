@@ -1,5 +1,8 @@
-/* ********* MEDIA QUERIES ************* */
+/*//////////////////////////////
+         MEDIA QUERIES
+//////////////////////////////*/
 
+/* base styles */
 @media (min-width: 320px) {
   .search-false {
     margin-top: calc(100vh - 120%);
@@ -148,6 +151,10 @@ img .hoverZoomLink {
     margin: 0 auto;
 	}
 }
+
+/*//////////////////////////////
+      Photo Gallery Layout
+//////////////////////////////*/
 
 @media (max-width : 1499px) {
 	#content {

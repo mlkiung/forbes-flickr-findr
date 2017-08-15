@@ -12,21 +12,22 @@ class Photos extends Component {
     }
   }
 
-  componentWillMount() {
+  componentWillMount = () => {
     if (this.props.currentImages !== []) {
       this.setState({currentImages: this.props.currentImages})
     }
   }
 
-  componentWillReceiveProps(np) {
+  componentWillReceiveProps= np => {
     if (this.props.currentImages !== np.currentImages) {
       this.setState({ currentImages: np.currentImages })
     }
   }
 
-  handleClick = event => {
-    event.preventDefault()
-    const imgInfo = event.target.id.split('---')
+  handleClick = e => {
+    e.preventDefault()
+    // e.target.id contains url and index number of clicked img
+    const imgInfo = e.target.id.split('---')
     const [url] = imgInfo
 
     this.setState({
@@ -35,8 +36,8 @@ class Photos extends Component {
     })
   }
 
-  closeModal = event => {
-    event.preventDefault()
+  closeModal = e => {
+    e.preventDefault()
     this.setState({
       showImgModal: false,
       clickedImg: ''

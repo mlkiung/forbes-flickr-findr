@@ -10,6 +10,10 @@ html {
   animation: fadeIn 2s ease-in-out forwards;
 }
 
+/*/////////////////////////////////////
+  Formatting page based on whether or
+  not a search has been performed
+/////////////////////////////////////*/
 .search-true:root {
   height: auto;
 }
@@ -17,6 +21,7 @@ html {
 .search-false:root {
   height: 100%;
 }
+/* ////////////////////////////////// */
 
 #root {
   height: inherit;
@@ -64,12 +69,13 @@ html {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-#page-numbers {
-  background-color: transparent;
-}
-
 #page-numbers div {
   font-size: 1.5rem;
+}
+
+#page-numbers {
+  background-color: transparent;
+  display: none;
 }
 
 .arrows button {
@@ -79,9 +85,6 @@ html {
 .page-number {
   margin: 0 .5rem;
   background-color: white;
-}
-
-.page-number {
   box-shadow: 0.5px 0.5px 5px 0px lightgray;
   border: none;
 }
@@ -90,6 +93,7 @@ html {
   padding-bottom: 10%;
 }
 
+/* .my-img are the photo gallery images  */
 .my-img:hover {
   opacity: 0.7;
 }
@@ -104,10 +108,6 @@ html {
   margin-bottom: 0px;
   margin-top: 10px;
 	width: 100%;
-}
-
-#page-numbers {
-  display: none;
 }
 
 .back {

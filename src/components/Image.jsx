@@ -9,6 +9,7 @@ class Image extends React.Component {
     }
   }
 
+  // handleImgLoad tests whether or not the preloaded img has finished
   handleImgLoad = () => {
     this.setState({ loaded: true })
   }
@@ -44,6 +45,7 @@ class Image extends React.Component {
                 this.state.loaded ?
                 <div id={img.modalImg} className="modal-content" style={styles.modalStyle}></div> : null
               }
+              {/*preloading img; when it's loaded, display the modal img */}
               <img src={this.props.clickedImg} style={styles.imgStyle} alt="" onLoad={this.handleImgLoad} />
             </div>
           ) : null

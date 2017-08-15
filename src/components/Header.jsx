@@ -11,9 +11,6 @@ class Header extends Component {
       mobile: false,
       emptyPage: true,
     }
-
-    this.onSearchChange = this.onSearchChange.bind(this)
-    this.onSearchSubmit = this.onSearchSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -22,20 +19,21 @@ class Header extends Component {
     this.state.searchTerm === '' ? this.setState({ emptyPage: true }) : this.setState({ emptyPage: false })
   }
 
-  onSearchChange(event) {
-    event.preventDefault()
+  onSearchChange = (e) => {
+    e.preventDefault()
     this.setState({
-      searchTerm: event.target.value
+      searchTerm: e.target.value
     })
   }
 
-  onSearchSubmit(event) {
-    event.preventDefault()
+  onSearchSubmit = (e) => {
+    e.preventDefault()
     this.props.newSearch(this.state.searchTerm)
     this.props.getImages(this.state.searchTerm)
     this.setState({ emptyPage: false, searchTerm: '' })
   }
 
+  // Brings the user back to the landing page
   handleReset = e => {
     e.preventDefault()
     this.setState({ searchTerm: '', emptyPage: true })
@@ -57,17 +55,19 @@ class Header extends Component {
               <form>
               <label htmlFor="search-flickr">Search Flickr</label>
               {
+                // if the user is on a desktop, this button will render
                 this.state.mobile
                   ? null
                   : <button className="browser-button" type="submit" onClick={this.onSearchSubmit}>Search</button>
               }
               <input
                 type="text"
-                placeholder="Puppies?"
+                placeholder="Puppies..."
                 id="search-flickr"
                 value={this.state.searchTerm}
                 onChange={this.onSearchChange}/>
               {
+                // if the user is on a mobile device, this button will render
                 this.state.mobile
                   ? <button className="mobile-button" type="submit" onClick={this.onSearchSubmit}>Search</button>
                   : null
